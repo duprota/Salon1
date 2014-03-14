@@ -6,8 +6,9 @@ class SalonsController < ApplicationController
 
  def create
   @salon = Salon.new(salon_params)
+  @salon.user_id = session[:login]
   @salon.save
-  redirect_to @salon
+  redirect_to salons_path
 
     # linha que preciso digitar para inculir a valiadacao direito
     # if @salon.save
@@ -48,7 +49,7 @@ end
 
 private
   def salon_params
-    params.require(:salon).permit(:salon_name, :owner_name, :contact_name, :phone, :address, :email)
+    params.require(:salon).permit(:salon_name, :contact_name, :phone, :address, :email, :user_id)
   end
 
 end

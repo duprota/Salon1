@@ -30,16 +30,24 @@
       <% if user.present? %>
         <p class="navbar-text" >Hi, <%= user.login %>!</p>
       <% end %>
-        <% if user.present? %>
-          <li><a href="/users/<%= user.id %>/">My Profile</a></li>
-          <!-- <li><a href= session_path>Sign Out</a></li> -->
-<li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
 
-     <!-- <li> <%= link_to 'Sign out', session_path(session)%></li> -->
+        <% if user.present? %>
+            <% if user.profile  == "salon" %>
+              <li><a href="/users/<%= user.id %>/">My Salon</a></li>
+              <li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
+
+            <% else %>
+
+             <li><a href="/users/<%= user.id %>/">My Profile</a></li>
+              <li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
+
+            <% end %>
 
         <% else %>
+
           <li><a href="/users/new">Sign Up</a></li>
           <li><a href="/sessions/new">Sign In</a></li>
+
         <% end %>
 
         </li>

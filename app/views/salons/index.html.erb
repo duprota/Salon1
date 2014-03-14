@@ -17,9 +17,12 @@
     <td><%= salon.salon_name %></td>
     <td><%= link_to 'Show', salon_path(salon) %></td>
     <td><%= link_to 'Edit', edit_salon_path(salon) %></td>
-        <td><%= link_to 'Destroy', salon_path(salon),
-                    method: :destroy, data: { confirm: 'Are you sure?'}%></td>
+        <td><%= link_to 'Delete', salon_path(salon),
+                        :method => :delete, data: { confirm: 'Are you sure?'}%></td>
+
   </tr>
 <% end %>
 </table>
+<!--
+<td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td> -->
 

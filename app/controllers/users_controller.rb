@@ -6,11 +6,15 @@ class UsersController < ApplicationController
 
  def create
   @user = User.new(user_params)
-  # params[:users]
   @user.save
-  redirect_to @user
+      if @user.profile == "salon"
+        redirect_to new_salon_path notice: "Please tell us more about your salon"
+      else
+        redirect_to root_url, notice: "Welcome dear client"
+      end
+  end
 
-end
+ # @product = Item.find_by(:id => params[:product_id])
 
   def show
       @user = User.find_by(:id => params[:user_id])
