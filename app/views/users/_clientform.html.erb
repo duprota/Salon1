@@ -1,20 +1,21 @@
 <div class="page-header">
   <h1>Sign Up for using this website</h1>
 </div>
-
-<%= form_for @client do |f| %>
-  <% if @client.errors.any? %> 
+<!-- 
+<%= form_for @client, :url => {:action => "update", :id => @client} do |f| %>
+  <%# if @profile.errors.any? %> 
   <div id="error_explanation">
-    <h2><%= pluralize(@client.errors.count, "error") %> prohibited
+    <h2><%#= pluralize(@profile.errors.count, "error") %> prohibited
       this client from being saved:</h2>
     <ul>
-    <% @client.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+    <%# @profile.errors.full_messages.each do |msg| %>
+      <li><%#= msg %></li>
+    <%# end %>
     </ul>
   </div>
-  <% end %>
-   <p> 
+  <%# end %> -->
+
+  <p> 
     <%= f.label :"User ID" %><br>
     <%= session[:login] %>
     </p>

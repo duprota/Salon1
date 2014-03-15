@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Beaulty Now</a>
+      <a class="navbar-brand" href="#">Beauty Now</a>
     </div>
 
 
@@ -40,6 +40,10 @@
 
              <li><a href="/users/<%= user.id %>/">My Profile</a></li>
               <li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
+          <li><a href="/users/<%= user.id %>/">My Profile</a></li>
+
+          <!-- <li><a href= session_path>Sign Out</a></li> -->
+<li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
 
             <% end %>
 
