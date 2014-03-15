@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303050320) do
+ActiveRecord::Schema.define(version: 20140314161126) do
 
   create_table "appointments", force: true do |t|
     t.integer  "client_id"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140303050320) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
-    # skip this
   end
 
   create_table "clients", force: true do |t|
@@ -42,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140303050320) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "salon_id"
+  end
+
   create_table "prices", force: true do |t|
     t.integer  "salon_id"
     t.integer  "stylist_id"
@@ -49,7 +56,6 @@ ActiveRecord::Schema.define(version: 20140303050320) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    # Skip this
   end
 
   create_table "salons", force: true do |t|
@@ -67,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140303050320) do
   create_table "services", force: true do |t|
     t.integer  "salon_id"
     t.integer  "category_id"
-    t.string   "service_ name"
+    t.string   "service_name"
     t.string   "service_description"
     t.datetime "created_at"
     t.datetime "updated_at"
